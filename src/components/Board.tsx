@@ -16,7 +16,7 @@ const Board: React.FC = () => {
         <TaskListItem />
       </div>
       <div className='task-list-item flex items-center p-4 rounded-[16px] bg-amber-300 mb-5 gap-5 cursor-pointer'>
-          <div className="left-icon w-[50px] h-[50px] shrink-0 rounded-[8px]  bg-[#00000038] max-w-[50px] flex items-center justify-center">
+          <div className="left-icon w-[50px] h-[50px] shrink-0 rounded-[8px] bg-[#00000038] max-w-[50px] flex items-center justify-center">
               <img src={actionIcons.addHover} alt="" />
           </div>
           <div className="task-content w-full">
