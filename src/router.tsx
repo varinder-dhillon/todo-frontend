@@ -9,7 +9,7 @@ const router = createBrowserRouter([
         Component: Layout,
         children: [
             {
-                path: "/board",
+                path: "/board/:boardId",
                 element: <Board />,
             },
         ]

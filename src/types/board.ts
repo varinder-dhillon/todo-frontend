@@ -1,12 +1,16 @@
-type TaskStatus =  "inProgress" | "completed" | "wontDo";
+import type { IconKey } from "../utils/contants";
+export type TaskStatus =  "inProgress" | "completed" | "wontDo";
 
-export interface Task {
+export interface TaskBase {
+  name: string;
+  description: string;
+  icon: IconKey;
+  status: TaskStatus | "";
+  boardId: string;
+}
+
+export interface Task extends TaskBase {
     _id: string,
-    name: string,
-    description: string,
-    icon: string,
-    status: TaskStatus,
-    boardId: string,
     __v?: number,
     createdAt?: string,
     updatedAt?: string,

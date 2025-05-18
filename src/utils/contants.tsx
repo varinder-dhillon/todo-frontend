@@ -8,8 +8,14 @@ import close from "../assets/close_ring_duotone-1.svg";
 import addHover from "../assets/Add_round_duotone.svg";
 
 export const icons = {
-    "work": "💻", "thinking": "💭", "tea": "🍵", "exercise": "🏋️", "study": "📚", "clock": "⏰"
-} as const;
+    "work": "💻", 
+    "thinking": "💭", 
+    "tea": "🍵", 
+    "exercise": "🏋️", 
+    "study": "📚", 
+    "clock": "⏰"
+};
+export type IconKey = keyof typeof icons;
 
 export const status = ["inProgress", "completed", "wontDo"] as const;
 export const statusColors = {
