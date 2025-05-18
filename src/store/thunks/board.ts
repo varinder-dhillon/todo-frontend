@@ -22,6 +22,21 @@ export const createBoardThunkHandler =  createAsyncThunk(
     }
 )
 
+export const updateBoardThunkHandler =  createAsyncThunk(
+    "updateBoardThunkHandler",
+    async (body:{name:string, description: string}) => {
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        const boardReq = await fetch(`${import.meta.env.VITE_APP_API_BASE_URL}/boards/${localStorage.getItem("boardId")}`, {
+            method: "PATCH",
+            body: JSON.stringify(body),
+            headers:myHeaders
+        });
+        const boardData = await boardReq.json();
+        return boardData.data;
+    }
+)
+
 export const createTaskThunkHandler =  createAsyncThunk(
     "createTaskThunkHandler",
     async (reqBody:TaskBase) => {

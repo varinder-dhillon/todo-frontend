@@ -24,10 +24,8 @@ const Task:React.FC<TaskbarProps> = ({isOpen, onClose, selectedTask}) => {
         setIcon('clock');
         setTaskStatus('');
     }
-    console.log("selected Task >", selectedTask);
     
     useEffect(() => {
-        console.log("selected Task > 1", selectedTask);
         if (selectedTask) {
             setTaskName(selectedTask.name || '');
             setDescription(selectedTask.description || '');
@@ -60,8 +58,6 @@ const Task:React.FC<TaskbarProps> = ({isOpen, onClose, selectedTask}) => {
     const handleSubmit = async () => {
         if (!validate()) return;
         const newTask:TaskBase = { name: taskName, description, icon, status:taskStatus, boardId };
-      
-        console.log("newTask task:", newTask);
         // dispatch(createTaskThunk(newTask));
         
         try {
@@ -77,7 +73,6 @@ const Task:React.FC<TaskbarProps> = ({isOpen, onClose, selectedTask}) => {
     const handleUpdate = async () => {
         if (!validate()) return;
         const updatedTask = { ...selectedTask, name: taskName, description, icon, boardId, status:taskStatus, };
-        console.log("Updating task:", updatedTask);
         // dispatch(updateTaskThunk(updatedTask));
         try {
             await dispatch(updateTaskThunkHandler({reqBody:updatedTask, taskId:selectedTask?._id || ""})).unwrap();
@@ -106,7 +101,7 @@ const Task:React.FC<TaskbarProps> = ({isOpen, onClose, selectedTask}) => {
                         <input 
                             type="text"
                             className='flex border border-solid border-[#97a3b6] mt-1 p-2 rounded-[8px] w-full'
-                            onChange={(e) => setTaskName(e.target.value.trim())}
+                            onChange={(e) => setTaskName(e.target.value)}
                             value={taskName}
                         />
                         {errors.taskName && <span className="text-red-500 text-sm mt-1 block">{errors.taskName}</span>}
@@ -116,7 +111,7 @@ const Task:React.FC<TaskbarProps> = ({isOpen, onClose, selectedTask}) => {
                         <textarea 
                             rows={6}
                             className='flex border border-solid border-[#97a3b6] mt-1 p-2 rounded-[8px] w-full'
-                            onChange={(e) => setDescription(e.target.value.trim())}
+                            onChange={(e) => setDescription(e.target.value)}
                             value={description}
                         >
                         </textarea>

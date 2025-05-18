@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getBoardThunkHandler, createBoardThunkHandler, createTaskThunkHandler, deleteTaskThunkHandler, updateTaskThunkHandler } from "../thunks/board";
+import { getBoardThunkHandler,updateBoardThunkHandler, createBoardThunkHandler, createTaskThunkHandler, deleteTaskThunkHandler, updateTaskThunkHandler } from "../thunks/board";
 import type { Board } from "../../types/board";
 
 interface BoardState {
@@ -19,6 +19,9 @@ const boardSlice = createSlice({
     extraReducers(builder) {
       builder.addCase(getBoardThunkHandler.fulfilled, (state, action) => {
         state.board = action.payload;
+      })
+      builder.addCase(updateBoardThunkHandler.fulfilled, (state, action) => {
+        state.board = {...state.board, ...action.payload};
       })
 
       builder.addCase(createBoardThunkHandler.fulfilled, (state, action) => {
