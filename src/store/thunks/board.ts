@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import type { Task, TaskBase } from "../../types/board";
+import type { TaskBase } from "../../types/board";
 export const getBoardThunkHandler =  createAsyncThunk(
     "getBoardThunkHandler",
     async (boardId:string) => {
