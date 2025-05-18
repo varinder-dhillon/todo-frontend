@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import type {TaskbarProps} from "../layout/TaskBar";
 import { icons, actionIcons, status, statusColors, statusIcons, statusText } from '../utils/contants';
-import type {Task, TaskBase, TaskStatus} from "../types/board";
+import type { TaskBase, TaskStatus} from "../types/board";
 import { createTaskThunkHandler, deleteTaskThunkHandler, updateTaskThunkHandler } from '../store/thunks/board';
 import { useDispatch } from 'react-redux';
 import type { AppDispatch } from '../store/store';
