@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 import { getErrorMessage } from '../utils/functions';
 
 
-const Task:React.FC<TaskbarProps> = ({isOpen, onClose, selectedTask}) => {
+const TaskMain:React.FC<TaskbarProps> = ({isOpen, onClose, selectedTask}) => {
     const dispatch = useDispatch<AppDispatch>();
     const [taskName, setTaskName] = useState('');
     const [description, setDescription] = useState('');
@@ -178,4 +178,4 @@ const Task:React.FC<TaskbarProps> = ({isOpen, onClose, selectedTask}) => {
   )
 }
 
-export default Task
+export default TaskMain;
